@@ -1,43 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Javascript Books</title>
-    </head>
-    <body>
-        <h1>JS books</h1>
 
-        <main>
-            <ol>
-              <li  *ngFor="let book of bookdata">
-                <a href={{book.cover.large}}>
-                    <img src={{book.cover.small}}>
-                </a>
-                {{book.title}}
-                {{book.author}}
-                {{book.releaseDate}}
-                {{book.pages}}
-                Link: {{book.link}}
-              </li>
-            </ol>
-        </main>
+<head>
+    <meta charset="utf-8">
+    <title>Javascript Books</title>
+</head>
 
-        <aside>
-            <h2>Sort by</h2>
-            <ul>
-                <li><input name="sort" type="radio"> number of pages</li>
-                <li><input name="sort" type="radio"> release date</li>
-                <li><input name="sort" type="radio"> surname of the author</li>
-            </ul>
-            <h2>Show only</h2>
-            <ul>
-                <li>Above <input type="text"> pages</li>
-            </ul>
-            <button>Reset</button>
-        </aside>
+<body>
+    <h1>JS books</h1>
 
-        <footer>
+    <div class="sidenav">
+        <h2>Sort by</h2>
+        <ul>
+            <li><input (click)="numberOfPagesRadio($event)" name="sort" type="radio"> Number of pages</li>
+            <li><input (click)="releaseDateRadio($event)" name="sort" type="radio"> Release date</li>
+            <li><input (click)="AuthorNameRadio($event)" name="sort" type="radio"> Author</li>
+        </ul>
+        <h2>Show only</h2>
+        <div>
+            <div class='pagesinput'>Above <input [(ngModel)]='pagesvalue' (change)="filterByNumberOfPages()"
+                    type='number'>
+                pages
+            </div>
+            <div>
+                <button class="pagesbuttom" (click)='filterByNumberOfPages()'>Apply</button>
+            </div>
+        </div>
+    </div>
 
-        </footer>
-    </body>
+    <main>
+      
+        <ol>
+            <li class='booklistitem' *ngFor="let book of bookdata">
+
+                <img class='myImg' alt={{book.title}} src={{book.cover.small}}>
+
+                <div class='title'>{{book.title}}</div>
+                <hr>
+                <div class='author'>
+                    <em>
+                        By {{book.author}}
+                    </em>
+                </div>
+                <div class='date'>
+                    <em>
+                        Release Date: {{book.releaseDate}}
+                    </em>
+                </div>
+                <div class='pagecount'>
+                    <em>
+                        Pages: {{book.pages}}
+                    </em></div>
+                <div>
+                    <em>
+                        Link: <a class='booklink' href={{book.link}}>Shop</a>
+                    </em>
+                </div>
+            </li>
+        </ol>
+
+    </main>
+
+
+    <footer>
+
+    </footer>
+</body>
+
 </html>
