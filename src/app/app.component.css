@@ -2,3 +2,92 @@
 body{
     background-color: #dfdfdf;
 }
+.sidenav {
+    height: 325px;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  position: absolute;
+    overflow-x: hidden;
+    padding-top: 20px;
+   margin: 65px 0 0 25px;;
+  }
+  .sidenav li {
+    list-style: none;
+    text-align: left;
+  }
+  
+  .pagesinput{
+      border-radius: 5px;
+      width: 40px;
+      height: 15px;
+  }
+  .sidehr{
+      color: grey;
+  }
+  
+  .pagesbuttom {
+    border-radius: 5px;
+    background-color: #bababa;
+    color: white;
+    padding: 5px;
+    width: 60px;
+    margin: 15px 0 0 48px;
+  }
+  
+  .myImg {
+    height: 220px;
+    height: 170px;
+  }
+  
+  .title {
+    font-weight: bold;
+    font-size: larger;
+  }
+  
+  .author {
+    font-weight: italic;
+    margin: 0 0 10px 0;
+  }
+  
+  hr {
+    height: 1px;
+    color: red;
+    background-color: red;
+    border: none;
+    width: 25px;
+  }
+  
+  em {
+    color: grey;
+  }
+  
+  .booklink {
+    color: red;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  @media screen and (min-width: 892px) {
+    main {
+      margin: 0 0 0 200px;
+      max-width: 1100px;
+    }
+  }
+  
+  @media screen and (max-width: 893px) {
+    main {
+      margin: 330px 0 0 0;
+    }
+  }
+  
+  .booklistitem {
+    display: inline-block;
+    text-align: center;
+    width: 305px;
+    height: 355px;
+  }
+  

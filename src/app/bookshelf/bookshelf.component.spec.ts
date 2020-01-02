@@ -1,14 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookshelfComponent } from './bookshelf.component';
-
+import { FormsModule } from '@angular/forms';
 describe('BookshelfComponent', () => {
   let component: BookshelfComponent;
   let fixture: ComponentFixture<BookshelfComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookshelfComponent ]
+      declarations: [ BookshelfComponent ],
+      imports: [ FormsModule ]
     })
     .compileComponents();
   }));
@@ -19,7 +20,8 @@ describe('BookshelfComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('books in first order', () => {
+    expect(component.bookdata.length).toBe(6);
+    expect(component.bookdata[0].author).toBe();
   });
 });

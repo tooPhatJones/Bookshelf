@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <title>Javascript Books</title>
-</head>
 
 <body>
     <h1>JS books</h1>
@@ -18,7 +12,7 @@
         </ul>
         <h2>Show only</h2>
         <div>
-            <div class='pagesinput'>Above <input [(ngModel)]='pagesvalue' (change)="filterByNumberOfPages()"
+            <div >Above <input class='pagesinput' [(ngModel)]='pagesvalue' (change)="filterByNumberOfPages()"
                     type='number'>
                 pages
             </div>
@@ -50,7 +44,8 @@
                 <div class='pagecount'>
                     <em>
                         Pages: {{book.pages}}
-                    </em></div>
+                    </em>
+                </div>
                 <div>
                     <em>
                         Link: <a class='booklink' href={{book.link}}>Shop</a>
@@ -66,5 +61,3 @@
 
     </footer>
 </body>
-
-</html>
