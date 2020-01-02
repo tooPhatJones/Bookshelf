@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import books from "../../assets/books"
+import { Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-bookshelf',
@@ -8,7 +9,7 @@ import books from "../../assets/books"
 })
 export class BookshelfComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _lightbox: Lightbox) { }
   testdata = ['test5', 'test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8']
   permanantBookdata = books;
   bookdata = books;
@@ -66,8 +67,17 @@ export class BookshelfComponent implements OnInit {
     });
   }
 
+  open(index: number): void {
+    // open lightbo
+    var temp = this.bookdata;
+    console.log(index)
+    this._lightbox.open(temp, index);
+  }
 
-
+  close(): void {
+    // close lightbox programmatically
+    this._lightbox.close();
+  }
 
 
 

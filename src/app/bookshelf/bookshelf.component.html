@@ -25,9 +25,9 @@
     <main>
       
         <ol>
-            <li class='booklistitem' *ngFor="let book of bookdata">
+            <li class='booklistitem' *ngFor="let book of bookdata; let i=index;">
 
-                <img class='myImg' alt={{book.title}} src={{book.cover.small}}>
+                <img (click)="open(i)" class='myImg' alt={{book.title}} src={{book.thumb}}>
 
                 <div class='title'>{{book.title}}</div>
                 <hr>
@@ -48,7 +48,7 @@
                 </div>
                 <div>
                     <em>
-                        Link: <a class='booklink' href={{book.link}}>Shop</a>
+                        Link: <a class='booklink' target='blank' href={{book.link}}>Shop</a>
                     </em>
                 </div>
             </li>
