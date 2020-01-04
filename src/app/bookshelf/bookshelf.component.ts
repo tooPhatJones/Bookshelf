@@ -10,7 +10,6 @@ import { Lightbox } from 'ngx-lightbox';
 export class BookshelfComponent implements OnInit {
 
   constructor(private _lightbox: Lightbox) { }
-  testdata = ['test5', 'test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8']
   permanantBookdata = books;
   bookdata = books;
   pagesSort = false;
@@ -19,7 +18,8 @@ export class BookshelfComponent implements OnInit {
   pagesvalue = 0;
   ngOnInit() {
   }
-  numberOfPagesRadio(event: Event) {
+  //sort by number of pages
+  numberOfPagesRadio() {
     this.pagesSort = !this.pagesSort;
     var temp = this.pagesSort;
     this.bookdata.sort(function (a, b) {
@@ -30,8 +30,8 @@ export class BookshelfComponent implements OnInit {
       }
     });
   }
-
-  releaseDateRadio(event: Event) {
+//sort by release date
+  releaseDateRadio() {
     this.dateSort = !this.dateSort;
     var temp = this.dateSort;
     this.bookdata.sort(function (a, b) {
@@ -39,25 +39,25 @@ export class BookshelfComponent implements OnInit {
       var aa = Number(a.releaseDate.replace(rx, '$3$1$20000'));
       var bb = Number(b.releaseDate.replace(rx, '$3$1$20000'));
       if (temp) {
-        return aa > bb ? -1 : aa == bb ? 0 : 1;
-      } else {
         return aa < bb ? -1 : aa == bb ? 0 : 1;
+      } else {
+        return aa > bb ? -1 : aa == bb ? 0 : 1;
       }
     });
   }
-
-  AuthorNameRadio(event: Event) {
+//sort by author name
+  AuthorNameRadio() {
     this.nameSort = !this.nameSort;
     var temp = this.nameSort;
     this.bookdata.sort(function (a, b) {
       if (temp) {
-        return a.author > b.author ? -1 : a.author == b.author ? 0 : 1;
-      } else {
         return b.author > a.author ? -1 : b.author == a.author ? 0 : 1;
+      } else {
+        return a.author > b.author ? -1 : a.author == b.author ? 0 : 1;
       }
     })
   }
-
+//filter above the number of pages the user enters
   filterByNumberOfPages() {
     this.pagesvalue == null ? this.pagesvalue = 0 : null;
     var temppagesvalue = this.pagesvalue;
@@ -68,7 +68,7 @@ export class BookshelfComponent implements OnInit {
   }
 
   open(index: number): void {
-    // open lightbo
+    // open lightbox third party modal utility with the picture that was clicked on.
     var temp = this.bookdata;
     console.log(index)
     this._lightbox.open(temp, index);
